@@ -1,0 +1,45 @@
+{
+    "name": "PreFreeSurferPipelineBatch",
+    "description": "PreFreeSurferPipelineBatch HCP pipeline",
+    "schema-version": "0.2",
+    "tool-version": "3.19.0-centos5",
+    "command-line": "PreFreeSurferPipelineBatch.sh --StudyFolder=. [SUBJECT_FOLDER] --runlocal",
+    "docker-image": "bigdatalabteam/hcp-prefreesurfer:centos5-latest",
+    "walltime-estimate": 25200,
+    "inputs": [
+        {
+            "id": "subject_folder",
+            "name": "HCP subject folder",
+            "type": "File",
+            "description": "HCP subject folder, downloaded from http://www.humanconnectome.org/documentation/S500.",
+            "command-line-key": "[SUBJECT_FOLDER]",
+            "optional": false,
+            "command-line-flag": "--Subjlist",
+            "command-line-flag-separator": "="
+        }
+    ],
+    "output-files": [
+        {
+            "id": "t1w",
+            "name": "T1W directory",
+            "path-template": "[SUBJECT_FOLDER]/T1w",
+            "description": "This directory will contain 5 files: AverageT1wImages, ACPCAlignment, BrainExtraction_FNIRTbased, xfms.",
+            "optional": false            
+        },
+        {
+            "id": "t2w",
+            "name": "T2W directory",
+            "path-template": "[SUBJECT_FOLDER]/T2w",
+            "description": "This directory will contain at least 7 files: T2w${i}_GradientDistortionUnwarp, AverageT1wImages, ACPCAlignment, BrainExtraction_FNIRTbased, xfms, T2wToT1wDistortionCorrectAndReg, BiasFieldCorrection_sqrtT1wXT1w.",
+            "optional": false            
+        },
+        {
+            "id": "atlas_space_folder",
+            "name": "Atlas space folder directory",
+            "path-template": "[SUBJECT_FOLDER]/MNINonLinear",
+            "description": "This directory will contain 1 file: xfms.",
+            "optional": false            
+        }
+
+    ]
+}
