@@ -3,7 +3,7 @@
     "description": "PreFreeSurferPipelineBatch HCP pipeline",
     "schema-version": "0.2",
     "tool-version": "3.19.0-centos5",
-    "command-line": "PreFreeSurferPipelineBatch.sh --StudyFolder=. [SUBJECT_FOLDER] --runlocal",
+    "command-line": "monitor.sh &> [MONITOR_FILE] ; PreFreeSurferPipelineBatch.sh --StudyFolder=. [SUBJECT_FOLDER] --runlocal",
     "docker-image": "bigdatalabteam/hcp-prefreesurfer:centos5-latest",
     "walltime-estimate": 25200,
     "inputs": [
@@ -16,6 +16,13 @@
             "optional": false,
             "command-line-flag": "--Subjlist",
             "command-line-flag-separator": "="
+        },
+	{
+            "id": "dummy_param",
+            "name": "Dummy",
+            "type": "String",
+            "description": "This parameter is ignored. It's here due to a bug in CBRAIN that crashes the portal when the task has only a single parameter of type file. Don't remove this parameter before CBRAIN issue #534 is fixed and deployed.",
+            "optional": true
         }
     ],
     "output-files": [
@@ -38,6 +45,14 @@
             "name": "Atlas space folder directory",
             "path-template": "[SUBJECT_FOLDER]/MNINonLinear",
             "description": "This directory will contain 1 file: xfms.",
+            "optional": false            
+        },
+        {
+            "id": "monitor_file",
+            "name": "Monitor file",
+            "path-template": "monitor.txt",
+            "command-line-key": "[MONITOR_FILE]",
+            "description": "A file to monitor the list of installed packages, and the CPU and memory of the machine where the task ran.",
             "optional": false            
         }
 
