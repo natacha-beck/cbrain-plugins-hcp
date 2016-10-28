@@ -3,7 +3,7 @@
     "description": "PreFreeSurferPipelineBatch HCP pipeline",
     "schema-version": "0.2",
     "tool-version": "3.19.0-centos7",
-    "command-line": "PreFreeSurferPipelineBatch.sh --StudyFolder=. [SUBJECT_FOLDER] --runlocal",
+    "command-line": "monitor.sh &> [MONITOR_FILE] ; PreFreeSurferPipelineBatch.sh --StudyFolder=. [SUBJECT_FOLDER] --runlocal",
     "docker-image": "bigdatalabteam/hcp-prefreesurfer:centos7-latest",
     "walltime-estimate": 25200,
     "inputs": [
@@ -38,6 +38,14 @@
             "name": "Atlas space folder directory",
             "path-template": "[SUBJECT_FOLDER]/MNINonLinear",
             "description": "This directory will contain 1 file: xfms.",
+            "optional": false            
+        },
+        {
+            "id": "monitor_file",
+            "name": "Monitor file",
+            "path-template": "monitor.txt",
+            "command-line-key": "[MONITOR_FILE]",
+            "description": "A file to monitor the list of installed packages, and the CPU and memory of the machine where the task ran.",
             "optional": false            
         }
 
