@@ -16,6 +16,13 @@
             "optional": false,
             "command-line-flag": "--Subjlist",
             "command-line-flag-separator": "="
+        },
+	{
+            "id": "dummy_param",
+            "name": "Dummy",
+            "type": "String",
+            "description": "This parameter is ignored. It's here due to a bug in CBRAIN that crashes the portal when the task has only a single parameter of type file. Don't remove this parameter before CBRAIN issue #534 is fixed and deployed.",
+            "optional": true
         }
     ],
     "output-files": [
