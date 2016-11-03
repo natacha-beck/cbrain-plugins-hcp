@@ -3,8 +3,8 @@
     "description": "PreFreeSurferPipelineBatch HCP pipeline",
     "schema-version": "0.2",
     "tool-version": "3.19.0-centos6",
-    "command-line": "monitor.sh &> [MONITOR_FILE] ; create-execution-dir.sh [SUBJECT_FOLDER] [SUBJECT_FOLDER]-exec && PreFreeSurferPipelineBatch.sh --StudyFolder=. [SUBJECT_FOLDER]-exec --runlocal",
     "docker-image": "bigdatalabteam/hcp-prefreesurfer:exec-centos6-fslbuild-centos5-latest",
+    "command-line": "create-execution-dir.sh [SUBJECT_FOLDER] exec && cd exec && monitor.sh &> [SUBJECT_FOLDER]/monitor.txt && PreFreeSurferPipelineBatch.sh --StudyFolder=. --Subjlist=[SUBJECT_FOLDER] --runlocal && cd .. && ln -s exec/[SUBJECT_FOLDER] [SUBJECT_FOLDER]-[NAME]",
     "walltime-estimate": 25200,
     "inputs": [
         {
@@ -13,48 +13,25 @@
             "type": "File",
             "description": "HCP subject folder, downloaded from http://www.humanconnectome.org/documentation/S500.",
             "command-line-key": "[SUBJECT_FOLDER]",
-            "optional": false,
-            "command-line-flag": "--Subjlist",
-            "command-line-flag-separator": "="
+            "optional": false
         },
 	{
-            "id": "dummy_param",
-            "name": "Dummy",
+            "id": "execution_name",
+            "name": "Execution name",
             "type": "String",
-            "description": "This parameter is ignored. It's here due to a bug in CBRAIN that crashes the portal when the task has only a single parameter of type file. Don't remove this parameter before CBRAIN issue #534 is fixed and deployed.",
-            "optional": true
+	    "command-line-key": "[NAME]",
+            "description": "Use this parameter to give a name to the execution. Example: \"Exec-CentOS5-FSLbuild-CentOS5\". The results will be written in a folder named [SUBJECT]-[EXECUTION-NAME] (a unique identifier will be appended in case a file with the same name already exists).",
+	    "default-value": "Exec-CentOS-[X]-FSLbuild-CentOS-[Y]",
+            "optional": false
         }
     ],
     "output-files": [
         {
-            "id": "t1w",
-            "name": "T1W directory",
-            "path-template": "[SUBJECT_FOLDER]-exec/T1w",
-            "description": "This directory will contain 5 files: AverageT1wImages, ACPCAlignment, BrainExtraction_FNIRTbased, xfms.",
-            "optional": false            
-        },
-        {
-            "id": "t2w",
-            "name": "T2W directory",
-            "path-template": "[SUBJECT_FOLDER]-exec/T2w",
-            "description": "This directory will contain at least 7 files: T2w${i}_GradientDistortionUnwarp, AverageT1wImages, ACPCAlignment, BrainExtraction_FNIRTbased, xfms, T2wToT1wDistortionCorrectAndReg, BiasFieldCorrection_sqrtT1wXT1w.",
-            "optional": false            
-        },
-        {
-            "id": "atlas_space_folder",
-            "name": "Atlas space folder directory",
-            "path-template": "[SUBJECT_FOLDER]-exec/MNINonLinear",
-            "description": "This directory will contain 1 file: xfms.",
-            "optional": false            
-        },
-        {
-            "id": "monitor_file",
-            "name": "Monitor file",
-            "path-template": "monitor.txt",
-            "command-line-key": "[MONITOR_FILE]",
-            "description": "A file to monitor the list of installed packages, and the CPU and memory of the machine where the task ran.",
+            "id": "results",
+            "name": "Results",
+            "path-template": "[SUBJECT_FOLDER]-[NAME]",
+            "description": "This directory will contain 3 directories (T1w, T2w and MNINonLinear), a monitoring file (monitor.txt) and the input data.",
             "optional": false            
         }
-
     ]
 }
