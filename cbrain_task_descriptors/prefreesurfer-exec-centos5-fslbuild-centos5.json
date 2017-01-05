@@ -7,7 +7,7 @@
 	"type": "docker",
        "image": "bigdatalabteam/hcp-prefreesurfer:exec-centos5-fslbuild-centos5-latest"
     },
-    "command-line": "create-execution-dir.sh [SUBJECT_FOLDER] exec && cd exec && monitor.sh &> [SUBJECT_FOLDER]/monitor.txt && PreFreeSurferPipelineBatch.sh --StudyFolder=$PWD --Subjlist=[SUBJECT_FOLDER] --runlocal && checksums.sh &> [SUBJECT_FOLDER]/checksums.txt && cd .. && ln -s exec/[SUBJECT_FOLDER] [SUBJECT_FOLDER]-[NAME]",
+    "command-line": "command_line_script.sh",
     "walltime-estimate": 25200,
     "inputs": [
         {
