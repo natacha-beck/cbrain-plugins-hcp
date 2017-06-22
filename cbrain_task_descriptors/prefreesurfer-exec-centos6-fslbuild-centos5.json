@@ -7,7 +7,7 @@
         "type": "docker",
         "image": "bigdatalabteam/hcp-prefreesurfer:exec-centos6-fslbuild-centos5-latest"
     },
-    "command-line": "command-line-script.sh [SUBJECT_FOLDER] [NAME]",
+    "command-line": "command-line-script.sh [SUBJECT_FOLDER] [NAME] -prefs",
     "walltime-estimate": 25200,
     "inputs": [
         {
