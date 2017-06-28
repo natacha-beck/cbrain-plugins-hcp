@@ -7,7 +7,7 @@
         "type": "docker",
         "image": "bigdatalabteam/hcp-freesurfer:exec-centos7-freesurferbuild-centos4-latest"
     },
-    "command-line": "command-line-script.sh [SUBJECT_FOLDER] [NAME] -fs [LICENSE]",
+    "command-line": "freesurfer-command-line-script.sh [SUBJECT_FOLDER] [NAME] [LICENSE]",
     "walltime-estimate": 25200,
     "inputs": [
         {
