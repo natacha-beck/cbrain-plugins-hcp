@@ -30,7 +30,7 @@
         {
             "id": "freesurfer-license",
             "name": "FreeSurfer License",
-            "type": "String",
+            "type": "File",
             "value-key": "[LICENSE]",
             "description": "Use this parameter to add the content of the license file in the freesurfer directory",
             "default-value": "",

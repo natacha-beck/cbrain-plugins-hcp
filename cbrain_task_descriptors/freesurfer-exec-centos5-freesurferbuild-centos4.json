@@ -5,7 +5,7 @@
     "tool-version": "3.19.0-centos5",
     "container-image": {
 	"type": "docker",
-       "image": "bigdatalabteam/hcp-freesurfer:exec-centos5-freesurferbuild-centos4-latest"
+        "image": "bigdatalabteam/hcp-freesurfer:exec-centos5-freesurferbuild-centos4-latest"
     },
     "command-line": "freesurfer-command-line-script.sh [SUBJECT_FOLDER] [NAME] [LICENSE]",
     "walltime-estimate": 25200,
@@ -30,7 +30,7 @@
 	{
 	    "id": "freesurfer-license",
             "name": "FreeSurfer License",
-            "type": "String",
+            "type": "File",
             "value-key": "[LICENSE]",
             "description": "Use this parameter to add the content of the license file in the freesurfer directory",
             "default-value": "",
