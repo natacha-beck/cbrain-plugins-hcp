@@ -28,7 +28,7 @@
             "optional": false
         },
         {
-            "id": "freesurfer-license",
+            "id": "freesurfer_license",
             "name": "FreeSurfer License",
             "type": "File",
             "value-key": "[LICENSE]",
