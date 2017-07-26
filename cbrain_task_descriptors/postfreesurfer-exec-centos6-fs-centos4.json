@@ -5,7 +5,7 @@
     "tool-version": "3.19.0-centos5",
     "container-image": {
 	"type": "docker",
-        "image": "bigdatalabteam/hcp-prefreesurfer:exec-centos6.postfreesurfer-fs-centos4"
+        "image": "bigdatalabteam/hcp-prefreesurfer:exec-centos6.postfreesurfer-fs-centos4-latest"
     },
     "command-line": "postfreesurfer-command-line-script.sh [SUBJECT_FOLDER] [NAME]",
     "walltime-estimate": 25200,
