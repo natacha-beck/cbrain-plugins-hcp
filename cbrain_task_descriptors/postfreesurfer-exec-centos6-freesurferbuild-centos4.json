@@ -2,7 +2,7 @@
     "name": "PostFreeSurferPipelineBatch-CentOS6",
     "description": "PostFreeSurferPipelineBatch HCP pipeline",
     "schema-version": "0.4",
-    "tool-version": "3.19.0-centos5",
+    "tool-version": "3.19.0-centos6",
     "container-image": {
 	"type": "docker",
         "image": "bigdatalabteam/hcp-prefreesurfer:exec-centos6.freesurferbuild-centos4-latest"
