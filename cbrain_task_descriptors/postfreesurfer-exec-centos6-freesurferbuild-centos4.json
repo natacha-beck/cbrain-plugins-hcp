@@ -23,8 +23,8 @@
             "name": "Execution name",
             "type": "String",
             "value-key": "[NAME]",
-            "description": "Use this parameter to give a name to the execution. Example: \"Exec-CentOS5-FreeSurferbuild-CentOS4\". The results will be written in a folder named [SUBJECT]-[EXECUTION-NAME] (a unique identifier will be appended in case a file with the same name already exists).",
-            "default-value": "Exec-CentOS-[X]-FreeSurferbuild-CentOS-[Y]",
+            "description": "Use this parameter to give a name to the execution. Example: \"Exec-CentOS5-PostFreeSurfer\". The results will be written in a folder named [SUBJECT]-[EXECUTION-NAME] (a unique identifier will be appended in case a file with the same name already exists).",
+            "default-value": "Exec-CentOS-[X]-PostFreeSurfer",
             "optional": false
         }
     ],
