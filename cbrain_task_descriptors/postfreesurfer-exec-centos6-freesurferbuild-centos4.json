@@ -7,7 +7,7 @@
 	"type": "docker",
         "image": "bigdatalabteam/hcp-prefreesurfer:exec-centos6.freesurferbuild-centos4-latest"
     },
-    "command-line": "postfreesurfer-command-line-script.sh [SUBJECT_FOLDER] [NAME]",
+    "command-line": "postfreesurfer-command-line-script.sh [SUBJECT_FOLDER] [NAME] [LICENSE]",
     "walltime-estimate": 25200,
     "inputs": [
         {
@@ -26,7 +26,18 @@
             "description": "Use this parameter to give a name to the execution. Example: \"Exec-CentOS5-PostFreeSurfer\". The results will be written in a folder named [SUBJECT]-[EXECUTION-NAME] (a unique identifier will be appended in case a file with the same name already exists).",
             "default-value": "Exec-CentOS-[X]-PostFreeSurfer",
             "optional": false
-        }
+        },
+	{
+	    "id": "freesurfer_license",
+            "name": "FreeSurfer License",
+            "type": "File",
+            "value-key": "[LICENSE]",
+            "description": "Use this parameter to add the content of the license file in the freesurfer directory",
+            "default-value": "",
+            "optional": false
+
+	}
+
     ],
     "output-files": [
         {
