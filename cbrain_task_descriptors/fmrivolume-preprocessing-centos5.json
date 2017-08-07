@@ -1,13 +1,13 @@
 {
-    "name": "DiffusionPreprocessing-CentOS5",
-    "description": "DiffusionPreprocessing HCP pipeline",
+    "name": "FmriVolumePreprocessing-CentOS5",
+    "description": "FmriVolumePreprocessing HCP pipeline",
     "schema-version": "0.4",
     "tool-version": "3.19.0-centos5",
     "container-image": {
 	"type": "docker",
         "image": "bigdatalabteam/hcp-prefreesurfer:exec-centos5.freesurferbuild-centos4-latest"
     },
-    "command-line": "diffusionpreprocessing-command-line-script.sh [SUBJECT_FOLDER] [NAME]",
+    "command-line": "fmrivolume-command-line-script.sh [SUBJECT_FOLDER] [NAME]",
     "walltime-estimate": 25200,
     "inputs": [
         {
@@ -23,8 +23,8 @@
             "name": "Execution name",
             "type": "String",
             "value-key": "[NAME]",
-            "description": "Use this parameter to give a name to the execution. Example: \"Exec-CentOS5-DiffusionPreprocessing\". The results will be written in a folder named [SUBJECT]-[EXECUTION-NAME] (a unique identifier will be appended in case a file with the same name already exists).",
-            "default-value": "Exec-CentOS-[X]-DiffusionPreprocessing",
+            "description": "Use this parameter to give a name to the execution. Example: \"Exec-CentOS5-FmriVolumePreprocessing\". The results will be written in a folder named [SUBJECT]-[EXECUTION-NAME] (a unique identifier will be appended in case a file with the same name already exists).",
+            "default-value": "Exec-CentOS-[X]-FmriVolumePreprocessing",
             "optional": false
         }
     ],
