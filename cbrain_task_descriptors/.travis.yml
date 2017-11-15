@@ -2,10 +2,6 @@ language: python
 
 sudo: required
 
-services:
-- docker
-- privileged: true
-
 python:
 - 2.7
 
@@ -16,3 +12,7 @@ before_script:
 
 script : 
 - pytest test
+
+after_success:
+
+deploy:
