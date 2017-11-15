@@ -4,7 +4,7 @@ import pytest
 import subprocess
 
 def get_json_files():
-    json_files = [json_file for json_file in os.listdir('.') if json_file.endswith('.json')]
+    json_files = [json_file for json_file in os.listdir('../cbrain_task_descriptors') if json_file.endswith('.json')]
     return json_files
 
 def test_run():
