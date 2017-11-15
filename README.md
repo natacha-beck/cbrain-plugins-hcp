@@ -1,5 +1,7 @@
 # cbrain-plugins-hcp
 
+[![Build Status](https://travis-ci.org/lalet/cbrain-plugins-hcp.svg?branch=master)](https://travis-ci.org/lalet/cbrain-plugins-hcp)
+
 CBRAIN plugins for pipelines of the Human Connectome Project. The
 pipelines are installed in containers based on different versions of
 the CentOS operating system.
