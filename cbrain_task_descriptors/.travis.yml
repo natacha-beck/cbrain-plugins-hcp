@@ -1,0 +1,18 @@
+language: python
+
+sudo: required
+
+python:
+- 2.7
+
+install: true
+
+before_script:
+- pip install boutiques pytest
+
+script : 
+- pytest test
+
+after_success:
+
+deploy:
