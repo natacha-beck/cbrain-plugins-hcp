@@ -32,8 +32,7 @@
     ], 
     "container-image": {
         "image": "bigdatalabteam/hcp-prefreesurfer:exec-centos5.freesurferbuild-centos4-latest", 
-        "type": "singularity",
-	"index": "docker://"
+        "type": "docker"
     }, 
     "schema-version": "0.5", 
     "output-files": [
